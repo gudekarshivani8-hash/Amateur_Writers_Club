@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Amateur Writers KIT</title>
+    <style>
+        :root {
+            --kit-blue: #0044ff;
+            --dark-blue: #002db3;
+            --white: #ffffff;
+            --light-bg: #f5f7ff;
+            --text: #2d3436;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Navigation Spacer */
+        .nav-spacer { height: 70px; background: var(--white); border-bottom: 1px solid #eee; }
+
+        /* Section Header */
+        .section-header {
+            padding: 60px 8%;
+            text-align: center;
+            background: var(--white);
+        }
+
+        .section-header h1 { font-size: 2.5rem; color: var(--kit-blue); margin-bottom: 10px; }
+        .tagline { text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; color: #666; }
+
+        /* Event Container */
+        .events-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+
+        .category-title {
+            font-size: 1.5rem;
+            border-left: 5px solid var(--kit-blue);
+            padding-left: 15px;
+            margin: 40px 0 20px;
+        }
+
+        /* Event Card Styling */
+        .event-card {
+            background: var(--white);
+            display: flex;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 68, 255, 0.08);
+            transition: 0.3s;
+        }
+
+        .event-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 68, 255, 0.15); }
+
+        .event-date {
+            background: var(--kit-blue);
+            color: white;
+            min-width: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .date-day { font-size: 1.8rem; font-weight: bold; }
+        .date-month { text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
+
+        .event-details { padding: 25px; flex-grow: 1; }
+        .event-details h3 { margin-bottom: 10px; color: var(--dark-blue); }
+        .event-meta { font-size: 0.85rem; color: #7f8c8d; margin-bottom: 15px; }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .status-upcoming { background: #e3f2fd; color: #1976d2; }
+        .status-completed { background: #f1f2f6; color: #747d8c; }
+
+        /* CTA Button */
+        .register-btn {
+            background: var(--kit-blue);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .register-btn:hover { background: var(--dark-blue); }
+
+        @media (max-width: 600px) {
+            .event-card { flex-direction: column; }
+            .event-date { flex-direction: row; gap: 10px; min-width: auto; padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-spacer"></div>
+
+    <header class="section-header">
+        <h1>Club Events</h1>
+        <p class="tagline">FEEL | THINK | WRITE | INSPIRE</p>
+    </header>
+
+    <div class="events-container">
+        
+        <h2 class="category-title">Upcoming Events</h2>
+
+        <div class="event-card">
+            <div class="event-date">
+                <span class="date-day">24</span>
+                <span class="date-month">Mar</span>
+            </div>
+            <div class="event-details">
+                <h3>Monthly Open Mic: The Engineer's Verse <span class="status-badge status-upcoming">Upcoming</span></h3>
+                <p class="event-meta">📍 Central Library Seminar Hall | 🕒 4:30 PM</p>
+                <p>Join us for our flagship monthly gathering where students share poetry and stories. Registration open for performers.</p>
+                <br>
+                <a href="#" class="register-btn">Register to Perform</a>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-date">
+                <span class="date-day">05</span>
+                <span class="date-month">Apr</span>
+            </div>
+            <div class="event-details">
+                <h3>Workshop: Fiction Architecture</h3>
+                <p class="event-meta">📍 CSE Department Hall | 🕒 2:00 PM</p>
+                <p>A technical approach to world-building and character development for aspiring novelists.</p>
+                <br>
+                <a href="#" class="register-btn">Save my Spot</a>
+            </div>
+        </div>
+
+        <h2 class="category-title">Recent Highlights</h2>
+
+        <div class="event-card">
+            <div class="event-date" style="background: #95a5a6;">
+                <span class="date-day">14</span>
+                <span class="date-month">Feb</span>
+            </div>
+            <div class="event-details">
+                <h3>The Valentine's Letter Project <span class="status-badge status-completed">Completed</span></h3>
+                <p class="event-meta">📍 Campus Courtyard</p>
+                <p>Over 100 handwritten letters were exchanged across departments to revive the art of physical writing.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="text-align: center; padding: 40px; color: #888; font-size: 0.9rem;">
+        KIT's College of Engineering (Autonomous), Kolhapur <br>
+        Amateur Writers Club &copy; 2026
+    </footer>
+
+</body>
+</html>
