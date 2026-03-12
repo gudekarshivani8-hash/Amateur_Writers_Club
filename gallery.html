@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Amateur Writers Club</title>
+    <style>
+        :root {
+            --kit-blue: #0044ff;
+            --dark-blue: #002db3;
+            --bg: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background: var(--kit-blue);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .tagline {
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        /* Filter Tabs */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid var(--kit-blue);
+            color: var(--kit-blue);
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--kit-blue);
+            color: white;
+        }
+
+        /* Gallery Grid */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .item-info {
+            padding: 15px;
+        }
+
+        .item-category {
+            font-size: 0.75rem;
+            color: var(--kit-blue);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .item-title {
+            font-size: 1.1rem;
+            margin: 5px 0;
+            color: #333;
+        }
+
+        /* Quote/Poetry Cards (For variety) */
+        .item-quote {
+            background: linear-gradient(135deg, #0044ff 0%, #002db3 100%);
+            color: white;
+            padding: 40px 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 250px;
+        }
+
+        .item-quote p {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <p class="tagline">FEEL | THINK | WRITE | INSPIRE</p>
+        <h1>Club Gallery</h1>
+    </header>
+
+    <div class="filters">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Open Mic</button>
+        <button class="filter-btn">Workshops</button>
+        <button class="filter-btn">Magazine</button>
+    </div>
+
+    <section class="gallery-container">
+        
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?auto=format&fit=crop&w=500" alt="Writing workshop">
+            <div class="item-info">
+                <span class="item-category">Workshop</span>
+                <h3 class="item-title">Content Writing Seminar 2026</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item item-quote">
+            <p>"The pen is the tongue of the mind."</p>
+            <span>- Miguel de Cervantes</span>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500" alt="Open Mic">
+            <div class="item-info">
+                <span class="item-category">Open Mic</span>
+                <h3 class="item-title">Rhythm & Rhyme Night</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1512485694743-9c9538b4e6e0?auto=format&fit=crop&w=500" alt="Editorial Meeting">
+            <div class="item-info">
+                <span class="item-category">Magazine</span>
+                <h3 class="item-title">Editorial Board Review</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item item-quote" style="background: var(--white); color: var(--kit-blue); border: 1px solid var(--kit-blue);">
+            <p>"Engineering dreams with the ink of reality."</p>
+            <span style="color: #666;">- Amateur Writers KIT</span>
+        </div>
+
+    </section>
+
+    <footer>
+        KIT's College of Engineering (Autonomous), Kolhapur <br>
+        Amateur Writers Club &copy; 2026
+    </footer>
+
+    <script>
+        // Simple filter logic could be added here later 
+        // For now, let's add a hover animation effect
+        const items = document.querySelectorAll('.gallery-item');
+        items.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.cursor = 'pointer';
+            });
+        });
+    </script>
+</body>
+</html>
