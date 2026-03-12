@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Amateur Writers Club</title>
+    <style>
+        :root {
+            --kit-blue: #0044ff;
+            --dark-blue: #002db3;
+            --bg: #fdfdfd;
+            --white: #ffffff;
+            --gray: #666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            color: #333;
+        }
+
+        /* Header Section */
+        .page-header {
+            background: linear-gradient(rgba(0, 68, 255, 0.9), rgba(0, 45, 179, 0.9)), 
+                        url('https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?auto=format&fit=crop&w=1200');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .tagline { letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; opacity: 0.9; }
+
+        /* Contact Layout */
+        .contact-container {
+            max-width: 1100px;
+            margin: -40px auto 60px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        /* Info Sidebar */
+        .info-sidebar {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .info-group { margin-bottom: 30px; }
+        .info-group h3 { color: var(--kit-blue); margin-bottom: 10px; font-size: 1.1rem; }
+        .info-group p { font-size: 0.95rem; line-height: 1.5; color: var(--gray); }
+
+        /* Contact Form */
+        .form-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .full-width { grid-column: span 2; }
+
+        label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus { border-color: var(--kit-blue); }
+
+        .submit-btn {
+            background: var(--kit-blue);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover { background: var(--dark-blue); transform: translateY(-2px); }
+
+        /* Social Links */
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icon {
+            width: 35px; height: 35px; background: #eee; 
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; text-decoration: none; color: var(--kit-blue);
+            font-weight: bold; transition: 0.3s;
+        }
+        .social-icon:hover { background: var(--kit-blue); color: white; }
+
+        @media (max-width: 768px) {
+            .contact-container { grid-template-columns: 1fr; margin-top: 20px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="page-header">
+        <h1>Connect With Us</h1>
+        <p class="tagline">FEEL | THINK | WRITE | INSPIRE</p>
+    </section>
+
+    <div class="contact-container">
+        <aside class="info-sidebar">
+            <div class="info-group">
+                <h3>Our Location</h3>
+                <p>KIT's College of Engineering (Autonomous),<br>
+                Gokul Shirgaon, Kolhapur,<br>
+                Maharashtra 416234</p>
+            </div>
+            
+            <div class="info-group">
+                <h3>Club Timings</h3>
+                <p>Tuesday & Friday<br>4:30 PM - 6:00 PM</p>
+            </div>
+
+            <div class="info-group">
+                <h3>Follow Our Journey</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/amateur_writers_club?utm_source=ig_web_button_share_sheet&igsh=" class="social-icon" title="Instagram">Ig</a>
+                    <a href="" class="social-icon" title="LinkedIn">In</a>
+                   
+                </div>
+            </div>
+        </aside>
+
+        <main class="form-card">
+            <form id="contactForm">
+                <div class="form-grid">
+                    <div class="full-width">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div>
+                        <label>Department</label>
+                        <select>
+                            <option>Computer Science</option>
+                            <option>Mechanical</option>
+                            <option>Civil</option>
+                            <option>ETC/Electronics</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>PRN / Year</label>
+                        <input type="text" placeholder="e.g. 2nd Year" required>
+                    </div>
+                    <div class="full-width">
+                        <label>Your Message / Inquiry</label>
+                        <textarea rows="5" placeholder="Tell us about your interest in writing..." required></textarea>
+                    </div>
+                    <div class="full-width">
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Message received! Our Editorial team will get back to you shortly.');
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
