@@ -3,127 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Login</title>
+    <title>The Inkwell | Writers' Club</title>
     
     <style>
+        /* CSS STYLES */
+        :root {
+            --primary: #1a1a1a;
+            --accent: #c0a080; /* Gold/Paper tone */
+            --bg: #fdfcf8;
+            --text: #333;
+            --white: #ffffff;
+        }
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
         }
 
-        .login-card {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background: var(--white);
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        header {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
+                        url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200');
+            background-size: cover;
+            background-position: center;
+            padding: 0 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-style: italic;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: 1px solid var(--primary);
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        /* Featured Section */
+        .container {
+            max-width: 1000px;
+            margin: 5rem auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .author {
+            display: block;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+        }
+
+        /* Contact Form (Quick Setup) */
+        .submission-form {
+            background: #f0f0f0;
+            padding: 4rem 20px;
             text-align: center;
         }
 
-        h2 {
-            margin-bottom: 20px;
-            color: #1c1e21;
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 14px;
-            color: #606770;
-        }
-
         input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #dddfe2;
-            border-radius: 6px;
-            font-size: 16px;
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
         }
 
-        input:focus {
-            outline: none;
-            border-color: #1877f2;
-            box-shadow: 0 0 0 2px #e7f3ff;
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #1877f2;
-            border: none;
-            border-radius: 6px;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background 0.2s;
-        }
-
-        button:hover {
-            background-color: #166fe5;
-        }
-
-        #message {
-            margin-top: 15px;
-            font-size: 14px;
-            min-height: 20px;
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: #888;
         }
     </style>
 </head>
 <body>
 
-    <div class="login-card">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
+    <nav>
+        <div class="logo">The Inkwell</div>
+        <ul class="nav-links">
+            <li><a href="#">Archives</a></li>
+            <li><a href="#">Manifesto</a></li>
+            <li><a href="#">Submit Work</a></li>
+            <li><a href="#" onclick="alert('Join logic would go here!')">Membership</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="hero-text">
+            <h1>Curation of Thought</h1>
+            <p>A community dedicated to the preservation of the written word and the pursuit of literary excellence.</p>
+            <a href="#featured" class="btn">Read the Latest</a>
+        </div>
+    </header>
+
+    <section class="container" id="featured">
+        <h2 class="section-title">Featured Contributions</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>The Ghost of the Library</h3>
+                <p>An exploration of forgotten books and the digital transition of physical memory.</p>
+                <span class="author">By Julian Barnes</span>
             </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your password" required>
+            <div class="card">
+                <h3>Syntax as Soul</h3>
+                <p>Why the rhythm of a sentence matters more than the plot of the story itself.</p>
+                <span class="author">By Clara Wu</span>
             </div>
-            <button type="submit">Log In</button>
+            <div class="card">
+                <h3>Winter in Kyoto</h3>
+                <p>A series of haikus capturing the stillness of the Kamo River in January.</p>
+                <span class="author">By Kenji Sato</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="submission-form">
+        <h2>Join the Newsletter</h2>
+        <p style="margin-bottom: 20px;">Get weekly prompts and literary critiques delivered to your inbox.</p>
+        <form id="newsForm">
+            <input type="email" placeholder="email@address.com" required>
+            <button type="submit" class="btn">Subscribe</button>
         </form>
-        <p id="message"></p>
-    </div>
+    </section>
+
+    <footer>
+        &copy; 2026 The Inkwell Writers' Club. All rights reserved.
+    </footer>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            // Prevent the form from actually refreshing the page
-            event.preventDefault();
+        // JAVASCRIPT LOGIC
+        document.getElementById('newsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert('Thank you for joining our circle, ' + email + '!');
+            this.reset();
+        });
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const message = document.getElementById('message');
-
-            // Simple validation logic
-            if (email === "shivuu@gmail.com" && password === "Shivani@2510") {
-                message.textContent = "Login successful! Redirecting...";
-                message.style.color = "green";
-                
-                // You could redirect the user here:
-                // window.location.href = "dashboard.html";
+        // Simple scroll effect for navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = '1rem 10%';
+                nav.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
             } else {
-                message.textContent = "Invalid email or password. Please try again.";
-                message.style.color = "red";
+                nav.style.padding = '1.5rem 10%';
+                nav.style.boxShadow = 'none';
             }
         });
     </script>
