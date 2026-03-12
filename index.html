@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Inkwell | Writers' Club</title>
-    
+    <title>Amateur Writers | KIT's College of Engineering</title>
     <style>
-        /* CSS STYLES */
         :root {
-            --primary: #1a1a1a;
-            --accent: #c0a080; /* Gold/Paper tone */
-            --bg: #fdfcf8;
-            --text: #333;
+            --kit-blue: #0044ff; /* Matching the logo blue */
+            --dark-blue: #002db3;
             --white: #ffffff;
+            --light-gray: #f4f7ff;
+            --text-main: #333;
         }
 
         * {
@@ -22,10 +20,10 @@
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--text-main);
+            line-height: 1.6;
         }
 
         /* Navigation */
@@ -33,223 +31,182 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 10%;
+            padding: 1rem 8%;
             background: var(--white);
-            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 10px rgba(0, 68, 255, 0.1);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
-        .logo {
-            font-size: 1.6rem;
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .brand-text {
             font-weight: bold;
-            letter-spacing: 1px;
-            color: var(--primary);
+            color: var(--kit-blue);
+            font-size: 1.2rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 25px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text);
-            font-size: 0.9rem;
+            color: var(--text-main);
+            font-weight: 500;
             transition: 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--kit-blue);
         }
 
         /* Hero Section */
-        header {
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .hero {
+            background: linear-gradient(135deg, var(--kit-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: 100px 8%;
             text-align: center;
-            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
-                        url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200');
-            background-size: cover;
-            background-position: center;
-            padding: 0 20px;
+            clip-path: ellipse(150% 100% at 50% 0%);
         }
 
-        .hero-text h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
         }
 
-        .hero-text p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            font-style: italic;
+        .tagline {
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            font-weight: 300;
         }
 
-        .btn {
+        .btn-white {
+            display: inline-block;
+            background: var(--white);
+            color: var(--kit-blue);
             padding: 12px 30px;
-            border: 1px solid var(--primary);
-            background: var(--primary);
-            color: white;
             text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
             transition: 0.3s;
-            cursor: pointer;
         }
 
-        .btn:hover {
-            background: transparent;
-            color: var(--primary);
+        .btn-white:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* Featured Section */
+        /* Content Section */
         .container {
-            max-width: 1000px;
-            margin: 5rem auto;
+            max-width: 1100px;
+            margin: -50px auto 50px;
             padding: 0 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2rem;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 30px;
         }
 
         .card {
             background: var(--white);
-            padding: 30px;
-            border: 1px solid #eee;
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            padding: 40px;
+            border-radius: 12px;
+            border-bottom: 4px solid var(--kit-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
         }
 
         .card h3 {
+            color: var(--kit-blue);
             margin-bottom: 15px;
-            color: var(--primary);
         }
 
-        .author {
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
             display: block;
-            margin-top: 20px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent);
         }
 
-        /* Contact Form (Quick Setup) */
-        .submission-form {
-            background: #f0f0f0;
-            padding: 4rem 20px;
-            text-align: center;
-        }
-
-        input {
-            padding: 10px;
-            width: 250px;
-            border: 1px solid #ccc;
-            margin-right: 10px;
-        }
-
+        /* Footer */
         footer {
+            background: #f0f2f5;
+            padding: 40px 0;
             text-align: center;
-            padding: 2rem;
-            font-size: 0.8rem;
-            color: #888;
+            border-top: 1px solid #ddd;
+        }
+
+        .college-info {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">The Inkwell</div>
+        <div class="nav-brand">
+            <img src="amateurs_logo.png" alt="Amateur Writers Logo" class="logo-img">
+            <div class="brand-text">Amateur Writers</div>
+        </div>
         <ul class="nav-links">
-            <li><a href="#">Archives</a></li>
-            <li><a href="#">Manifesto</a></li>
-            <li><a href="#">Submit Work</a></li>
-            <li><a href="#" onclick="alert('Join logic would go here!')">Membership</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#works">Gallery</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <header>
-        <div class="hero-text">
-            <h1>Curation of Thought</h1>
-            <p>A community dedicated to the preservation of the written word and the pursuit of literary excellence.</p>
-            <a href="#featured" class="btn">Read the Latest</a>
-        </div>
+    <header class="hero" id="home">
+        <h1>Amateur Writers Club</h1>
+        <p class="tagline">FEEL | THINK | WRITE | INSPIRE</p>
+        <a href="#join" class="btn-white">Register as a Writer</a>
     </header>
 
-    <section class="container" id="featured">
-        <h2 class="section-title">Featured Contributions</h2>
+    <div class="container">
         <div class="grid">
             <div class="card">
-                <h3>The Ghost of the Library</h3>
-                <p>An exploration of forgotten books and the digital transition of physical memory.</p>
-                <span class="author">By Julian Barnes</span>
+                <span class="card-icon">✍️</span>
+                <h3>Creative Writing</h3>
+                <p>From short stories to poetry, we provide a platform to showcase your hidden literary talents.</p>
             </div>
             <div class="card">
-                <h3>Syntax as Soul</h3>
-                <p>Why the rhythm of a sentence matters more than the plot of the story itself.</p>
-                <span class="author">By Clara Wu</span>
+                <span class="card-icon">🎤</span>
+                <h3>Open Mic</h3>
+                <p>Monthly gatherings to recite your work and receive feedback from fellow engineering wordsmiths.</p>
             </div>
             <div class="card">
-                <h3>Winter in Kyoto</h3>
-                <p>A series of haikus capturing the stillness of the Kamo River in January.</p>
-                <span class="author">By Kenji Sato</span>
+                <span class="card-icon">📚</span>
+                <h3>Editorial Wing</h3>
+                <p>Assisting in the college magazine and documenting major campus events with style.</p>
             </div>
         </div>
-    </section>
-
-    <section class="submission-form">
-        <h2>Join the Newsletter</h2>
-        <p style="margin-bottom: 20px;">Get weekly prompts and literary critiques delivered to your inbox.</p>
-        <form id="newsForm">
-            <input type="email" placeholder="email@address.com" required>
-            <button type="submit" class="btn">Subscribe</button>
-        </form>
-    </section>
+    </div>
 
     <footer>
-        &copy; 2026 The Inkwell Writers' Club. All rights reserved.
+        <p><strong>KIT'S COLLEGE OF ENGINEERING (AUTONOMOUS), KOLHAPUR</strong></p>
+        <p class="college-info">Amateur Writers Club &copy; 2026 | Shaping the thinkers of tomorrow.</p>
     </footer>
-
-    <script>
-        // JAVASCRIPT LOGIC
-        document.getElementById('newsForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input').value;
-            alert('Thank you for joining our circle, ' + email + '!');
-            this.reset();
-        });
-
-        // Simple scroll effect for navigation
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.padding = '1rem 10%';
-                nav.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.padding = '1.5rem 10%';
-                nav.style.boxShadow = 'none';
-            }
-        });
-    </script>
 
 </body>
 </html>
